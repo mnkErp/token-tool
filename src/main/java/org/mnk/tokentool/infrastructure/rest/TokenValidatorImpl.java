@@ -29,9 +29,6 @@ public class TokenValidatorImpl implements TokenValidator {
     @Value("${gcu.url}")
     private String gcuUrl;
 
-    @Value("${gcu.localUrl}")
-    private String gcuLocalUrl;
-
     @Value("${gcu.port}")
     private String gcuPort;
 
@@ -46,9 +43,8 @@ public class TokenValidatorImpl implements TokenValidator {
 
     @SneakyThrows
     @Override
-    public CacheableUserInfo getUserInfo(String token, String produit, UsedEnv usedEnv) {
-        final String serverUrl = UsedEnv.SERVER_USE.equals(usedEnv) ? gcuUrl : gcuLocalUrl;
-        final String fullUrl = serverUrl + ":" + gcuPort + "/" + VALIDATION_TOKEN_PATH + "?produit=" + produit;
+    public CacheableUserInfo getUserInfo(String token, String produit) {
+        final String fullUrl = gcuUrl + ":" + gcuPort + "/" + VALIDATION_TOKEN_PATH + "?produit=" + produit;
         if (TokenTools.isValidToken(token)) {
             String idUser = "";
             final GoogleTokenPayloadResponse tokenInfo = TokenTools.getTokenInfo(token);
