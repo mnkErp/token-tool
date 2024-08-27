@@ -1,4 +1,4 @@
-package org.mnk.tokentool.aspect;
+package org.mnk.tokentool;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

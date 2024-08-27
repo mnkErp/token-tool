@@ -1,4 +1,4 @@
-package org.mnk.tokentool.aspect;
+package org.mnk.tokentool;
 
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -27,7 +27,7 @@ public class AuthorizeUserAspect {
 
     private final TokenValidator tokenValidator;
 
-    @Around("@annotation(AuthorizeUser)")
+    @Around("@annotation(org.mnk.tokentool.AuthorizeUser)")
     public Object excuteAspect(ProceedingJoinPoint joinPoint) throws Throwable {
         Object[] args = joinPoint.getArgs();
 

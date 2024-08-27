@@ -1,7 +1,6 @@
 package org.mnk.tokentool.domain.service;
 
 import org.mnk.tokentool.domain.model.CacheableUserInfo;
-import org.mnk.tokentool.domain.model.UsedEnv;
 
 public interface TokenValidator {
 
